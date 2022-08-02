@@ -8,7 +8,7 @@ const shirtsReducer= (state = initialState, action) => {
     switch(action.type){
         case BUY_SHIRTS: return {
             ...state,
-            numOfShirts: state.numOfShirts-1
+            numOfShirts: state.numOfShirts-action.payload
         }
         default: return state
     }

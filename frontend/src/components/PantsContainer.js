@@ -10,7 +10,9 @@ function PantsContainer(props) {
   return (
     <div>
         <h2># of Pants - {props.numOfPants}</h2>
-        <button onClick = {props.buyPants}>Buy Pants</button>
+        <input type='text' value={number} onChange = { e =>
+        setNumber(e.target.value)}/>
+        <button onClick = { () => props.buyPants(number)}>Buy {number} Pants</button>
     </div>
   )
 }
@@ -21,7 +23,7 @@ const mapStateToProps= state =>{
 }
 const mapDipatchToProps = dispatchEvent => {
     return {
-        buyPants: () => dispatchEvent(buyPants())
+        buyPants: number => dispatchEvent(buyPants(number))
     }
 }
 
