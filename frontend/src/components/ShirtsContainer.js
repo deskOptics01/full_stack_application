@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { buyShirts } from '../redux/pants/pantsActions'
+import { buyShirts } from '../redux/shirts/shirtActions'
 
 
 
