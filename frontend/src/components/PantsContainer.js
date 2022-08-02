@@ -1,12 +1,31 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import { buyPants } from '../redux/pants/pantsActions'
 
-function PantsContainer() {
+
+
+
+function PantsContainer(props) {
   return (
     <div>
-        <h2># of Pants</h2>
-        <button>Buy Pants</button>
+        <h2># of Pants - {props.numOfPants}</h2>
+        <button onClick = {props.buyPants}>Buy Pants</button>
     </div>
   )
 }
+const mapStateToProps= state =>{
+    return  {
+        numOfPants: state.pants.numOfPants
+    }
+}
+const mapDipatchToProps = dispatchEvent => {
+    return {
+        buyPants: () => dispatchEvent(buyPants())
+    }
+}
 
-export default PantsContainer
+
+export default connect(
+    mapStateToProps,
+    mapDipatchToProps
+)(PantsContainer)
